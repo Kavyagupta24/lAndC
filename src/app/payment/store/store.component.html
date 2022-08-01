@@ -1,0 +1,24 @@
+<div class="game-wrap">
+    <div class="back-header store-header">
+        <a (click)="back()"><img src="../../../assets/img/Store/back.png" alt="back-btn" class="back-btn"></a>
+        <h2>{{this.langModel.componentLang.storeComp.heading[this.langModel.lang]}}</h2>
+        <div class="img-content">
+          <img src="../../../assets/img/Store/coins.png" alt="Coin" class="coin">
+          <span>50K</span>
+          <img src="../../../assets/img/Store/addcoins.png" alt="Add-Btn" class="add-btn">  
+        </div>
+    </div>
+    <div class="pattern">
+    </div> 
+    <div class="inner-game-wrap">
+       <div class="store-container">
+            <div *ngFor="let val of coinArr" (click)="cardClick(val.coin)" [ngClass]='val.class' class="store-content">
+                <span>{{val.coin}}</span>
+                <div class="text">{{this.global.moneyVal * val.coin}} KZ</div>
+             </div>
+        </div>
+
+    </div>
+</div>
+
+<app-pay-popup (onClick)="onPopupTap($event)"></app-pay-popup>

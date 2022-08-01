@@ -1,0 +1,25 @@
+<div class="popup-wrap" *ngIf="isVisible">
+    <div class="winner-container">
+      <div class="inner-container">
+            <img src="../../../assets/img1/Winner_Screen/rays.png" alt="rays" class="rays-img">
+            <div class="winner-text">
+              {{this.langModel.componentLang.ingame.winner[this.langModel.lang]}}
+             </div>
+      
+         <div class="winner-img">
+          <div class="winner-img-inner"> <img src="../../../assets/img1/Winner_Screen/crown.png" class="crown">
+           <img src="../../../assets/img1/Winner_Screen/Avatar3.png" class="avatar" alt="avatar" id="winnerPopupAvatar"></div>
+             <span>{{winnerName}}</span>
+             <div class="coin-container">
+                 <img src="../../../assets/img1/Winner_Screen/coins.png" alt="coin-img">
+                   <span>200</span>
+             </div>
+          </div>
+        </div> 
+     <div class="button-container">
+         <button type="submit" class="play-btn yellow-btn" (click)="goToLobby()">{{this.langModel.componentLang.ingame.playagain[this.langModel.lang]}}</button>
+         <button type="submit" class="green-btn home-btn" (click)="goToHome()">{{this.langModel.componentLang.ingame.home[this.langModel.lang]}}</button>
+      </div> 
+   </div>
+ </div>
+ 

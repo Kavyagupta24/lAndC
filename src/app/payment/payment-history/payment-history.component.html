@@ -1,0 +1,58 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="../../assets/img/Login/Button_Back.png" alt="back-btn" class="back-btn"></a>
+        <h2 *ngIf="this.global.isHistory">{{this.langModel.componentLang.paymentHistory.heading[this.langModel.lang]}}</h2>
+        <h2 *ngIf="!this.global.isHistory">{{this.langModel.componentLang.refList.heading[this.langModel.lang]}}</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <div *ngIf="this.global.isHistory" class="payment-history-container">
+            <div class="transaction-id">
+                <span>{{this.langModel.componentLang.paymentHistory.transactionID[this.langModel.lang]}}</span>
+                <span class="text">1108978786</span>
+            </div>
+            <div class="amount-withdrawn">
+                <span>{{this.langModel.componentLang.paymentHistory.amountWithdrawn[this.langModel.lang]}}</span>
+                <span class="text">500Kz</span>
+            </div>
+            <div class="date">
+                <span>{{this.langModel.componentLang.paymentHistory.date[this.langModel.lang]}}</span>
+                <span class="text">1 March 22</span>
+            </div>
+            <div class="mode">
+                <span>{{this.langModel.componentLang.paymentHistory.mode[this.langModel.lang]}}</span>
+                <span class="text">{{this.langModel.componentLang.paymentHistory.bankTransfer[this.langModel.lang]}}</span>
+            </div>
+
+        </div>
+
+        <div *ngIf="!this.global.isHistory" class="payment-history-container">
+            <div class="refID">
+                <span>{{this.langModel.componentLang.refList.refID[this.langModel.lang]}}</span>
+                <span class="text">1108978786</span>
+            </div>
+            <div class="refNum">
+                <span>{{this.langModel.componentLang.refList.refNum[this.langModel.lang]}}</span>
+                <span class="text">1108978786</span>
+            </div>
+            <div class="entityid">
+                <span>{{this.langModel.componentLang.refList.entityid[this.langModel.lang]}}</span>
+                <span class="text">2412</span>
+            </div>
+            <div class="amount-withdrawn">
+                <span>{{this.langModel.componentLang.refList.amount[this.langModel.lang]}}</span>
+                <span class="text">5191 KZ</span>
+            </div>
+            <div class="date">
+                <span>{{this.langModel.componentLang.refList.date[this.langModel.lang]}}</span>
+                <span class="text">1 March 22</span>
+            </div>
+            <div class="status">
+                <span>{{this.langModel.componentLang.refList.status[this.langModel.lang]}}</span>
+                <span class="text">{{this.langModel.componentLang.refList.success[this.langModel.lang]}}</span>
+            </div>
+            <div class="delete-payment"><i class="fa-solid fa-trash"></i> Delete Reference</div>
+
+        </div>
+
+    </div>
+</div>

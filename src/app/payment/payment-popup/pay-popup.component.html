@@ -1,0 +1,55 @@
+<div class="popup-wrap" *ngIf="isVisible">
+    <div class="popup-container reference-payment" *ngIf="!isExpressDone">
+       <img (click)="close()" src="../../assets/popup/Button_Close.png" alt="close-btn" class="close-btn">
+       <div class="popup-header">
+           {{heading}}
+       </div>
+        <div class="popup-body" *ngIf="!isExpress">
+            <p>{{subheading}}</p>
+            <button (click)="onVpos()" class="green-btn w-100">Vpos</button>
+            <button (click)="onExpress()" class="blue-btn w-100">Express</button>
+        </div>
+       <div class="popup-body" *ngIf="isExpress">
+           <p>{{expressHead}}</p>
+           <span>{{amountSelected}} KZ</span>
+           <div class="button-wrap-payment">
+               <button (click)="approveExp()" class="yellow-btn">{{yes}}</button>
+               <button (click)="denyExp()" class="blue-btn">{{no}}</button>
+           </div>
+       </div>
+    </div>
+
+    <div class="popup-container" *ngIf="isExpressDone">
+        <img (click)="close()" src="../../assets/popup/Button_Close.png" alt="close-btn" class="close-btn">
+        <div class="popup-header">
+            {{expRef}}
+        </div>
+        <div class="popup-body" >
+            <div class="agent-wrap mt-10">
+                <div class="inner-agent-wrap">
+                    <div>{{amountText}}</div>
+                    <div><span>454</span></div>
+                </div>
+                <div class="inner-agent-wrap">
+                    <div>{{refNumText}}</div>
+                    <div><span>454</span>
+                    <img src="../../assets/popup/copy.png" ngxClipboard [cbContent]="this.refNum"></div>
+                </div>
+                <div class="inner-agent-wrap">
+                    <div>{{refIdText}}</div>
+                    <div><span>453</span>
+                    <img src="../../assets/popup/copy.png" ngxClipboard [cbContent]="this.refId"></div>
+                </div>
+                <div class="inner-agent-wrap">
+                    <div>{{entityidText}}</div>
+                    <div><span>452</span> 
+                    <img src="../../assets/popup/copy.png" ngxClipboard [cbContent]="this.EntityId"></div>
+                </div>
+            </div>
+        </div>
+        <div class="popup-footer reference">
+            <p>{{footRef}}</p>
+        </div>
+     </div>
+</div>
+

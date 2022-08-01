@@ -1,0 +1,46 @@
+<div class="game-wrap" [ngStyle]="gameCheck('bg')">
+    <div class="back-header" [ngStyle]="gameCheck('back-header')">
+        <a (click)="back()">
+            <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/Button_Back.png" alt="back-btn" class="back-btn">
+            <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/back.png" alt="back-btn" class="back-btn">
+        </a>
+        <h2>{{this.langModel.componentLang.tournamentPage.heading[this.langModel.lang]}}</h2>
+    </div>
+    <div class="inner-game-wrap">
+    
+        <div  *ngFor="let t of this.global.tourDataArray;let k=index" class="redBox tournament-wrap" [ngStyle]="gameCheck('redbox')">
+            <div class="redBox-header" [ngStyle]="gameCheck('redBox-header')">
+                <span>{{this.global.tourDataArray[k].gameName}}</span>
+            </div>
+            <div class="redBox-body">
+
+                <div class="tournament-box">
+                    <div class="bet-box" [ngStyle]="gameCheck('betbox')">
+                        <div>
+                            <span>{{this.langModel.componentLang.tournamentPage.entry[this.langModel.lang]}} </span>
+                            <div><img src="../../assets/img1/coin.png"><span>{{this.global.tourDataArray[k].entryFee}}</span></div>
+                        </div>
+                    </div>
+                    <div class="bet-box" [ngStyle]="gameCheck('betbox')">
+                        <div>
+                            <span>{{this.langModel.componentLang.tournamentPage.rewards[this.langModel.lang]}} </span>
+                            <div><img src="../../assets/img1/coins.png"><span>{{this.global.tourDataArray[k].winningPrize}}</span></div>
+                        </div>
+                    </div>
+                    <div class="bet-box" [ngStyle]="gameCheck('betbox')">
+                        <div>
+                            <span>{{this.langModel.componentLang.tournamentPage.seats[this.langModel.lang]}} </span>
+                            <div><img src="../../assets/img1/seats.png"><span>{{this.global.tourDataArray[k].maxPlayers}}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="full-red-box" [ngStyle]="gameCheck('betbox')"><span>{{this.langModel.componentLang.tournamentPage.date[this.langModel.lang]}} </span>{{this.global.tourDataArray[k].startDate | slice: 0:10}} &nbsp; &nbsp; {{ this.global.tourDataArray[k].startDate | slice: 11:16 }}</div>
+                <div class="btn-wrap">
+                    <button (click)="onJoin(this.global.tourDataArray[k].tId)" type="submit" class="yellow-btn" [ngStyle]="gameCheck('yellowbtn')">{{this.langModel.componentLang.tournamentPage.joinroom[this.langModel.lang]}}</button>
+                    <button (click)="tourneyDetails(k)" type="submit" class="green-btn" [ngStyle]="gameCheck('greenbtn')">{{this.langModel.componentLang.tournamentPage.details[this.langModel.lang]}}</button>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
